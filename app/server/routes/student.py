@@ -45,3 +45,19 @@ async def get_student_data(id):
     if student:
         return ResponseModel(student, 'Student data retrieved successfully')
     return ErrorResponseModel('An error occurred', 404, 'Student doesn\'t exist.')
+
+
+@router.put('/{id}')
+async def update_student_data(id: str, req; UpdateStudentModel=Body(...)):
+    req = {k: v for k, v in req.dict().items() if v is not None}
+    updated_student = await update_student(id, req)
+    if updated_student:
+        return ResponseModel(
+            f'Student with ID: {id} name update is successfully',
+            'Student name updated successfully'
+        )
+    return ErrorResponseModel(
+        "An error occurred",
+        404,
+        'There was an error updating the student data.',
+    )
