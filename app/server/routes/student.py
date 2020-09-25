@@ -48,7 +48,7 @@ async def get_student_data(id):
 
 
 @router.put('/{id}')
-async def update_student_data(id: str, req; UpdateStudentModel=Body(...)):
+async def update_student_data(id: str, req: UpdateStudentModel = Body(...)):
     req = {k: v for k, v in req.dict().items() if v is not None}
     updated_student = await update_student(id, req)
     if updated_student:
