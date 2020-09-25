@@ -59,7 +59,7 @@ async def update_student(id: str, data: dict):
         return False
 
     student = await student_collection.update_one(
-        {'_id': ObjectId(id), {'$set': data}}
+        {"_id": ObjectId(id)}, {"$set": data}
     )
 
     if updated_student:
@@ -72,5 +72,5 @@ async def update_student(id: str, data: dict):
 async def delete_student(id: str):
     student = await student_collection.find_one({'_id': ObjectId(id)})
     if student:
-        await student_collection.delete_one({'_id': ObjectId(id))
+        await student_collection.delete_one({'_id': ObjectId(id)})
         return True
