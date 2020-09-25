@@ -5,6 +5,7 @@ Em seguida, uma função auxiliar rápida para analisar os resultados de uma con
 """
 
 import motor.motor_asyncio
+from bson.objectid import ObjectId
 
 MONGO_DETAILS = 'mongodb+srv://userhere:passwordhere@projectx.saeyn.mongodb.net/projectx?retryWrites=true&w=majority'
 
@@ -26,3 +27,50 @@ def student_helper(student) -> dict:
         "year": student["year"],
         "GPA": student["gpa"],
     }
+
+
+# Trazer todos os alunos presentes no banco de dados
+async def retrieve_students():
+    students = []
+    async for student in student_collection.find():
+        students.append(student_helper(student))
+    return students
+
+
+# Adicionar um novo estudante no banco de dados
+async def add_student(student_data: dict) -> dict:
+    student = await student_collection.insert_one(student_data)
+    new_student = await student_collection.find_one({"_id": student.inserted_id})
+    return student_helper(new_student)
+
+
+# Trazer um estudante passando seu ID
+async def retrieve_student(id: str) -> dict:
+    student = await student_collection.find_one({'_id': ObjectId(id)})
+    if student:
+        return student_helper(student)
+
+
+# Atualizar um estudante passando seu ID
+async def update_student(id: str, data: dict):
+
+    # Retorna falso se o body for vazio
+    if (len(data)) < 1:
+        return False
+
+    student = await student_collection.update_one(
+        {'_id': ObjectId(id), {'$set': data}}
+    )
+
+    if updated_student:
+        return True
+    return False
+
+# Deletar um estudante
+
+
+async def delete_student(id: str):
+    student = await student_collection.find_one({'_id': ObjectId(id)})
+    if student:
+        await student_collection.delete_one({'_id': ObjectId(id))
+        return True
