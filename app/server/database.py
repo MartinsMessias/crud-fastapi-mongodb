@@ -53,18 +53,17 @@ async def retrieve_student(id: str) -> dict:
 
 # Atualizar um estudante passando seu ID
 async def update_student(id: str, data: dict):
-
     # Retorna falso se o body for vazio
-    if (len(data)) < 1:
+    if len(data) < 1:
         return False
-
-    student = await student_collection.update_one(
-        {"_id": ObjectId(id)}, {"$set": data}
-    )
-
-    if updated_student:
-        return True
-    return False
+    student = await student_collection.find_one({"_id": ObjectId(id)})
+    if student:
+        updated_student = await student_collection.update_one(
+            {"_id": ObjectId(id)}, {"$set": data}
+        )
+        if updated_student:
+            return True
+        return False
 
 # Deletar um estudante
 
