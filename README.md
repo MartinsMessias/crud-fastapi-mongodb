@@ -25,4 +25,4 @@ Uma API assíncrona com FastAPI e MongoDB. Usando o pacote Motor para interagir 
 --- 
 
 ### Documentação interativa
-https://crud-fastapi.herokuapp.com/
+https://crud-fastapi.herokuapp.com/docs
