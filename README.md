@@ -2,7 +2,11 @@
 
 <div align="center">
 
-[![GitHub stars](https://img.shields.io/github/stars/MartinsMessias/crud-fastapi-mongodb)](https://github.com/MartinsMessias/crud-fastapi-mongodb)<space> <space>[![GitHub license](https://img.shields.io/github/license/MartinsMessias/crud-fastapi-mongodb)](https://github.com/MartinsMessias/crud-fastapi-mongodb/blob/master/LICENSE)<space> <space>[![GitHub forks](https://img.shields.io/github/forks/MartinsMessias/crud-fastapi-mongodb)](https://github.com/MartinsMessias/crud-fastapi-mongodb/)
+[![GitHub stars](https://img.shields.io/github/stars/MartinsMessias/crud-fastapi-mongodb)](https://github.com/MartinsMessias/crud-fastapi-mongodb)
+<space> <space>
+[![GitHub license](https://img.shields.io/github/license/MartinsMessias/crud-fastapi-mongodb)](https://github.com/MartinsMessias/crud-fastapi-mongodb/blob/master/LICENSE)
+<space> <space>
+[![GitHub forks](https://img.shields.io/github/forks/MartinsMessias/crud-fastapi-mongodb)](https://github.com/MartinsMessias/crud-fastapi-mongodb/)
 
 </div>
 ---
