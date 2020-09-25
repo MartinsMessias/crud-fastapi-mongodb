@@ -6,8 +6,9 @@ Em seguida, uma função auxiliar rápida para analisar os resultados de uma con
 
 import motor.motor_asyncio
 from bson.objectid import ObjectId
+from decouple import config
 
-MONGO_DETAILS = 'mongodb+srv://userhere:passwordhere@projectx.saeyn.mongodb.net/projectx?retryWrites=true&w=majority'
+MONGO_DETAILS = config('MONGO_DETAILS')
 
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
 
