@@ -53,11 +53,24 @@ async def update_student_data(id: str, req: UpdateStudentModel = Body(...)):
     updated_student = await update_student(id, req)
     if updated_student:
         return ResponseModel(
-            f'Student with ID: {id} name update is successfully',
+            'Student with ID: {} name update is successfully'.format(id),
             'Student name updated successfully'
         )
     return ErrorResponseModel(
         "An error occurred",
         404,
         'There was an error updating the student data.',
+    )
+
+
+@router.delete('/{id}', response_description="Student data deleted from the database")
+async def delete_student_data(id: str):
+    deleted_student = await delete_student(id)
+    if deleted_student:
+        return ResponseModel(
+            f"Student with ID: {id} removed",
+            "Student deleted successfully"
+        )
+    return ErrorResponseModel(
+        "An error ocurred", 404, "Student with id {0} doesn't exist"
     )
