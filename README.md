@@ -1,5 +1,4 @@
-# NewNews API Flask
-##### Cadastre autores, poste notícas e pesquise sobre algo.
+# API assíncrona com FastAPI e MongoDB
 
 <div align="center">
 
