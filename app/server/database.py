@@ -3,12 +3,16 @@ No código abaixo, importamos Motor, definimos os detalhes da conexão e criamos
 Em seguida, referenciamos um banco de dados chamado students e uma coleção chamada students_collection. Visto que são apenas referências e não E/S reais, nenhum deles requer uma expressão await. Quando a primeira operação de I/O for feita, o banco de dados e a coleção serão criados, se ainda não existirem.
 Em seguida, uma função auxiliar rápida para analisar os resultados de uma consulta ao banco de dados em um dicionário Python.
 """
+import os
 
 import motor.motor_asyncio
 from bson.objectid import ObjectId
 from decouple import config
 
-MONGO_DETAILS = config('MONGO_DETAILS')
+try:
+    MONGO_DETAILS = config('MONGO_DETAILS')
+except:
+    MONGO_DETAILS = os.getenv('MONGO_DETAILS')
 
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
 
