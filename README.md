@@ -14,6 +14,7 @@
 ## 📖 Sobre:
 
 Uma API assíncrona com FastAPI e MongoDB. Usando o pacote Motor para interagir com o MongoDB de forma assíncrona.
+Implementado com testes com TestClient e CI/CD no GitHub Actions com deploy no Heroku.
 
 --- 
 
