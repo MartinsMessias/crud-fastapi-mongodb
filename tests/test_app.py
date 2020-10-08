@@ -11,6 +11,6 @@ def test_read_main():
     assert response.json() == {"message": "Welcome to this fantastic app!"}
 
 def test_read_students_list():
-    response = client.get('/students/')
+    response = client.get('/student')
     assert response.status_code == 200
     #assert response.json() == {"message": "Students data retrieved successfully"}
